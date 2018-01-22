@@ -875,6 +875,10 @@ class AnnotationDriver implements MappingDriver
             $joinTable->setSchema($joinTableAnnot->schema);
         }
 
+        if (! empty($joinTableAnnot->orderBy)) {
+            $joinTable->setOrderBy($joinTableAnnot->orderBy);
+        }
+
         foreach ($joinTableAnnot->joinColumns as $joinColumnAnnot) {
             $joinColumn = $this->convertJoinColumnAnnotationToJoinColumnMetadata($joinColumnAnnot);
 

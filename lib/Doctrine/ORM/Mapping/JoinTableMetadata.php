@@ -15,6 +15,9 @@ final class JoinTableMetadata extends TableMetadata
     /** @var JoinColumnMetadata[] */
     protected $inverseJoinColumns = [];
 
+    /** @var string|null */
+    protected $orderBy;
+
     public function hasColumns() : bool
     {
         return $this->joinColumns || $this->inverseJoinColumns;
@@ -44,6 +47,16 @@ final class JoinTableMetadata extends TableMetadata
     public function addInverseJoinColumn(JoinColumnMetadata $joinColumn) : void
     {
         $this->inverseJoinColumns[] = $joinColumn;
+    }
+
+    public function getOrderBy() : ?string
+    {
+        return $this->orderBy;
+    }
+
+    public function setOrderBy(string $orderBy) : void
+    {
+        $this->orderBy = $orderBy;
     }
 
     public function __clone()

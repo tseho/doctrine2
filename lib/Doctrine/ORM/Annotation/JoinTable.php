@@ -29,4 +29,9 @@ final class JoinTable implements Annotation
      * @var array<\Doctrine\ORM\Annotation\JoinColumn>
      */
     public $inverseJoinColumns = [];
+
+    /**
+     * @var string
+     */
+    public $orderBy;
 }
